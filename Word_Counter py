@@ -1,0 +1,14 @@
+print("Hello! I'm Word Counter, I can count an amount of each word in any text you enter below.")
+text = str(input("Enter a text: "))
+text = text.lower()
+import string
+text = text.translate(str.maketrans("", "", string.punctuation))
+words = text.split()
+word_count = {}
+for word in words:
+    if word in word_count:
+        word_count[word] += 1
+    else:
+        word_count[word] = 1
+for word, count in word_count.items():
+    print(f"'{word}': {count}")
