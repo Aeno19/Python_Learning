@@ -1,0 +1,25 @@
+import math
+
+def is_prime(num):
+    if num < 2:
+        return False
+    for i in range(2, int(math.sqrt(num)) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+i = [2**x for x in range(15) if 2**x <= 16384]
+
+result = 0
+answers = []
+
+for num in i:
+    result += num
+    if is_prime(result):
+        result *= num
+        answers.append(result)
+        result = result
+
+print("The resulting 'ans' numbers are:")
+for ans in answers:
+    print(ans)
